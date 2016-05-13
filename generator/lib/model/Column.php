@@ -299,7 +299,7 @@ class Column extends XMLElement
      */
     public function getFullyQualifiedName()
     {
-        return ($this->parentTable->getName() . '.' . $this->getName());
+        return ($this->parentTable->getName() . '.' . strtoupper($this->getName()));
     }
 
     /**
@@ -477,9 +477,9 @@ class Column extends XMLElement
         // was it overridden in schema.xml ?
         if ($this->getPeerName()) {
             return strtoupper($this->getPeerName());
+        } else {
+            return strtoupper($this->getName());
         }
-
-        return strtoupper($this->getName());
     }
 
     /**

@@ -509,7 +509,7 @@ class ColumnMap
             $name = substr($name, $pos + 1);
         }
 
-        return $name;
+        return strtoupper($name);
     }
 
     /**

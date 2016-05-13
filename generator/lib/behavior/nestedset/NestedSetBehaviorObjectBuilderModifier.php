@@ -52,6 +52,13 @@ class NestedSetBehaviorObjectBuilderModifier
         $this->builder->declareClass($builder->getStubQueryBuilder()->getFullyQualifiedClassname());
     }
 
+    /*
+    public function objectFilter(&$script, $builder)
+    {
+        $script = str_replace('implements Persistent', 'implements Persistent, NodeObject', $script);
+    }
+    */
+
     public function objectAttributes($builder)
     {
         $objectClassname = $builder->getStubObjectBuilder()->getClassname();

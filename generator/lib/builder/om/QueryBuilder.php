@@ -506,12 +506,12 @@ abstract class " . $this->getClassname() . " extends " . $parentClass . "
         $selectColumns = array();
         foreach ($table->getColumns() as $column) {
             if (!$column->isLazyLoad()) {
-                $selectColumns [] = $platform->quoteIdentifier($column->getName());
+                $selectColumns []= $platform->quoteIdentifier(strtoupper($column->getName()));
             }
         }
         $conditions = array();
         foreach ($table->getPrimaryKey() as $index => $column) {
-            $conditions [] = sprintf('%s = :p%d', $platform->quoteIdentifier($column->getName()), $index);
+            $conditions []= sprintf('%s = :p%d', $platform->quoteIdentifier(strtoupper($column->getName())), $index);
         }
         $query = sprintf('SELECT %s FROM %s WHERE %s', implode(', ', $selectColumns), $platform->quoteIdentifier($table->getName()), implode(' AND ', $conditions));
         $pks = array();
